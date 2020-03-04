@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="deportment")
+@Table(name="department")
 
 public class Department {
 	
@@ -17,7 +17,7 @@ public class Department {
 	@Column(name="Department_ID")
 	private int id;
 	@Column(name="Department_NAME")
-	private String deportmentName;
+	private String departmentName;
 	
 
 	public Department() {
@@ -37,19 +37,19 @@ public class Department {
 	}
 
 
-	public String getDeportmentName() {
-		return deportmentName;
+	public String getDepartmentName() {
+		return departmentName;
 	}
 
 
-	public void setDeportmentName(String deportmentName) {
-		this.deportmentName = deportmentName;
+	public void setDeportmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", deportmentName=" + deportmentName + "]";
+		return "Department [id=" + id + ", departmentName=" + departmentName + "]";
 	}
 }
 
