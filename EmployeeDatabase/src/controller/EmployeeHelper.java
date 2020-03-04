@@ -7,9 +7,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import model.Department;
+
 public class EmployeeHelper {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("UserShoppingLists");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("EmployeeDatabase");
 
 	public void insertEmployee(Department s) {
 		EntityManager em = emfactory.createEntityManager();
