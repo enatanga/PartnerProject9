@@ -7,22 +7,27 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import model.Department;
+import model.Employee;
+
 public class EmployeeHelper {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("UserShoppingLists");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("EmployeeDatabae");
 
-	public void insertEmployee(Department s) {
+	public void insertEmp(Department s) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(s);
 		em.getTransaction().commit();
 		em.close();
 	}
-	public List<Department> showAllEmployee() {
+
+	public List<Department> showAllEmp() {
 		EntityManager em = emfactory.createEntityManager();
-		List<Department> allEmployee = em.createQuery("SELECT s FROM Department s").getResultList();
-		return allEmployee;
+		List<Department> allEmployees = em.createQuery("SELECT s FROM Department s").getResultList();
+		return allEmployees;
 	}
+
 	public Department searchForEmployeeByName(String deportmentName) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
@@ -39,4 +44,3 @@ public class EmployeeHelper {
 
 
 
-}
