@@ -2,9 +2,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Employee Database</title>
 </head>
 <body>
+<form action = "addItemServlet" method="post">
+Department: <input type ="text" name = "Department">
+Employee: <input type = "text" name = "Employee">
+<input type = "submit" value="Add Employee">
+</form>
+<br />
+<a href = "viewAllEmployeeServlet">View the complete list</a>
+<a href="addEmployeeToListServlet">Create a new list</a>
 
 </body>
 </html>
