@@ -19,7 +19,6 @@ public class Employee {
 	private int department;
 	@Column(name="EMPLOYEE")
 	private int employee;
-	@Column(name="TRIP_DATE")
 	private LocalDate hireDate;
 	
 	//Default no arg constructor
