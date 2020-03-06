@@ -42,17 +42,13 @@ public class EditExistingListServlet extends HttpServlet {
 		EmployeeDetailsHelper slh = new EmployeeDetailsHelper();
 		EmloyeeListHelper lih = new EmloyeeListHelper ();
 		EmployeeHelper sh = new EmployeeHelper();
-
-		// search for object to make changes to
 		int idToEdit = Integer.parseInt(request.getParameter("id"));
 		EmployeeDetails toEdit = slh.searchForListById(idToEdit);
 
-		// update the listName first
 		String listName = request.getParameter("listName");
 		System.out.println("List Name: " + listName);
 		toEdit.setListName(listName);
-
-		// update the date
+	
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
 		String year = request.getParameter("year");

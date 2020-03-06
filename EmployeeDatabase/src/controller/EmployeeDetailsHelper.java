@@ -7,9 +7,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import model.EmployeeDetails;
+import model.EmployeeList;
+
 public class EmployeeDetailsHelper {
 
-	public class EmployeeDetailsHelper {
 		static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("EmployeeDatabase");
 
 		public void insertNewListDetails(EmployeeDetails s) {
@@ -59,4 +61,4 @@ public class EmployeeDetailsHelper {
 			em.close();
 		}
 	}
-}
+

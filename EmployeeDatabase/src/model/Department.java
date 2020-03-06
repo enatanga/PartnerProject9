@@ -13,45 +13,46 @@ public class Department {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="Department_ID")
+	@Column(name="DEPORTMENT_ID")
 	private int id;
-	@Column(name="Department_NAME")
+	@Column(name="DEPORTMENT_NAME")
 	private String deportmentName;
 	
-
 	public Department() {
+	
 		super();
+	}
 		// TODO Auto-generated constructor stub
-		
-	}
 
+		public Department(String deportmentName) {
+			super();
+			this.deportmentName = deportmentName;
+		}
 
-	public int getId() {
-		return id;
-	}
+		public Department(int id, String deportmentName) {
+			super();
+			this.id = id;
+			this.deportmentName = deportmentName;
+		}
 
+		public int getId() {
+			return id;
+		}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+		public void setId(int id) {
+			this.id = id;
+		}
 
+		public String getDeportmentName() {
+			return deportmentName;
+		}
 
-	public String getDeportmentName() {
-		return deportmentName;
-	}
+		public void setDeportmentName(String deportmentName) {
+			this.deportmentName = deportmentName;
+		}
 
-
-	public void setDeportmentName(String deportmentName) {
-		this.deportmentName = deportmentName;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Department [id=" + id + ", deportmentName=" + deportmentName + "]";
-	}
-}
-
-
-
+		@Override
+		public String toString() {
+			return "Department [id=" + id + ", deportmentName=" + deportmentName + "]";
+		}
 }

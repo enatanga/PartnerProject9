@@ -34,7 +34,7 @@ public class ViewAllEmployeesServlet extends HttpServlet {
 		String path = "/employee_list.jsp";
 		
 		if(dao.showAllEmp().isEmpty()){
-			//if there's nothing in the list, redirect the user to the index to add an item
+		
 			path = "/index.html";
 		
 		}

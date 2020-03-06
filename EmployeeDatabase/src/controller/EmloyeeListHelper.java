@@ -34,7 +34,6 @@ public class EmloyeeListHelper {
 		TypedQuery<EmployeeList> typedQuery = em.createQuery(
 				"select li from EmployeeList li where li.deportment = :selectedDeportpment and li.employee = :selectedemployee",
 				EmployeeList.class);
-		// Substitute parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedDeportpment", toDelete.getDeportment());
 		typedQuery.setParameter("selectedemployee", toDelete.getEmployee());
 
@@ -50,7 +49,6 @@ public class EmloyeeListHelper {
 		em.close();
 
 	}
-
 	public EmployeeList searchForEmpById(int idToEdit) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
@@ -59,7 +57,6 @@ public class EmloyeeListHelper {
 		em.close();
 		return found;
 	}
-
 	public void update(EmployeeList toEdit) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
@@ -69,7 +66,6 @@ public class EmloyeeListHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-
 	public List<EmployeeList> searchForEmpByDep(String depName) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
@@ -92,8 +88,7 @@ public class EmloyeeListHelper {
 		List<EmployeeList> foundEmps = typedQuery.getResultList();
 		em.close();
 		return foundEmps;
-	}
-	
+	}	
 	public void cleanUp(){
 		emfactory.close();
 	}

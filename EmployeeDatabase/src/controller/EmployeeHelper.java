@@ -21,13 +21,11 @@ public class EmployeeHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-
 	public List<Department> showAllEmp() {
 		EntityManager em = emfactory.createEntityManager();
 		List<Department> allEmployees = em.createQuery("SELECT s FROM Department s").getResultList();
 		return allEmployees;
 	}
-
 	public Department searchForEmployeeByName(String deportmentName) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();

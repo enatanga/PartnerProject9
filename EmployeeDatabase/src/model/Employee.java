@@ -13,7 +13,7 @@ public class Employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	//parameterized constructor
+
 	public Employee(int id, int name, int department, LocalDate hireDate) {
 		super();
 		this.id = id;
