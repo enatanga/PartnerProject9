@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Employee;
+
 /**
  * Servlet implementation class AddEmployeeToListServlet
  */
@@ -23,25 +25,23 @@ public class AddEmployeeToListServlet extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmployeeHelper dao = new EmployeeHelper();
-		request.setAttribute("allEmployee", dao.showAllEmployee());
-		if(dao.showAllEmployee().isEmpty()){
-		request.setAttribute("allEmployee", " ");
-		}
-		getServletContext().getRequestDispatcher("/new-list.jsp").forward(request, response);
-		
-	}
+		String department = request.getParameter("department");
+		String employee = request.getParameter("employee");
+		if (department.isEmpty() || employee.isEmpty() || department == null || employee == null) {
+			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		} else {
+			Employee li = new Employee(department, employee);
+			EmployeeHelper dao = new EmployeeHelper();
+			dao.insertEmployee(li);
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		}
 	}
 
 }

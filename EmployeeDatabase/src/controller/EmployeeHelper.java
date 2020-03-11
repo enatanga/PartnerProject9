@@ -14,30 +14,30 @@ public class EmployeeHelper {
 
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("employeedata");
 
-	public void insertItem(Employee empl) {
+	public void insertEmployee(Employee li) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(empl);
+		em.persist(li);
 		em.getTransaction().commit();
 		em.close();
 	}
 
 	public List<Employee> showAllEmployee() {
 		EntityManager em = emfactory.createEntityManager();
-		List<Employee> allEmployee = em.createQuery("SELECT i FROM Employee i").getResultList();
-		return allEmployee;
+		List<Employee> allItems = em.createQuery("SELECT i FROM Employee i").getResultList();
+		return allItems;
 	}
 
-	public void deleteItem(Employee toDelete) {
+	public void deleteEmployee(Employee toDelete) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Employee> typedQuery = em.createQuery(
-				"select empl from Employee empl where empl.department = :selectedDepartment and empl.employee = :selectedEmployee",
+				"select li from Employee li where li.Department = :selectedDepartment and li.department = :selectedDepartment",
 				Employee.class);
 		// Substitute parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedDepartment", toDelete.getDepartment());
-		typedQuery.setParameter("selectedEmployee", toDelete.getEmployee());
+		typedQuery.setParameter("selectedStore", toDelete.getEmployee());
 
 		// we only want one result
 		typedQuery.setMaxResults(1);
@@ -60,45 +60,4 @@ public class EmployeeHelper {
 		em.close();
 		return found;
 	}
-
-	public void updateItem(Employee toEdit) {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-
-		em.merge(toEdit);
-		em.getTransaction().commit();
-		em.close();
-	}
-
-	public List<Employee> searchForEmployeeByStore(String departmentName) {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		TypedQuery<Employee> typedQuery = em.createQuery("select empl from Employee empl where empl.department = :selectedDepartment",
-				Employee.class);
-		typedQuery.setParameter("selectedDepartment", departmentName);
-
-		List<Employee> foundItems = typedQuery.getResultList();
-		em.close();
-		return foundItems;
-	}
-
-	public List<Employee> searchForEmployeeByItem(String employeeName) {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		TypedQuery<Employee> typedQuery = em.createQuery("select empl from Employee empl where empl.employee = :selectedEmployee",
-				Employee.class);
-		typedQuery.setParameter("selectedEmployee", employeeName);
-
-		List<Employee> foundEmployee = typedQuery.getResultList();
-		em.close();
-		return foundEmployee;
-	}
-
-	public void cleanUp() {
-		emfactory.close();
-	}
-
 }

@@ -15,19 +15,25 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	private int id;
-	@Column(name="DEPARMENT")
-	private int department;
-	@Column(name="EMPLOYEE")
-	private int employee;
+	@Column(name="dEPARMENT")
+	private String department;
+	@Column(name="eMPLOYEE")
+	private String employee;
+	@Column(name="hired_date")
 	private LocalDate hireDate;
 	
-	//Default no arg constructor
+	
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int id, int department, int employee, LocalDate hireDate) {
+	public Employee(String department, String employee) {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(int id, String department, String employee, LocalDate hireDate) {
 		super();
 		this.id = id;
 		this.department = department;
@@ -43,20 +49,20 @@ public class Employee {
 		this.id = id;
 	}
 
-	public int getDepartment() {
+	public String getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(int department) {
+	public void setDepartment(String department) {
 		this.department = department;
 	}
 
-	public int getEmployee() {
+	public String getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(int employee) {
-		this.employee = employee;
+	public void setEmployee(String employee2) {
+		this.employee = employee2;
 	}
 
 	public LocalDate getHireDate() {

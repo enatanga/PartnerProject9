@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class viewAllEmployeeServlet
+ * Servlet implementation class viewAllItemsServlet
  */
 @WebServlet("/viewAllEmployeeServlet")
 public class ViewAllEmployeeServlet extends HttpServlet {
@@ -29,9 +29,10 @@ public class ViewAllEmployeeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		EmployeeHelper dao = new EmployeeHelper();
 
-		request.setAttribute("allEmployee", dao.showAllEmployee());
+		request.setAttribute("allItems", dao.showAllEmployee());
 
 		String path = "/employee-list.jsp";
 

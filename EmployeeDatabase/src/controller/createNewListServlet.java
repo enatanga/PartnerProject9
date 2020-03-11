@@ -35,8 +35,8 @@ public class createNewListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		EmployeeHelper lih = new EmployeeHelper();
-		String listName = request.getParameter("listName");
-		System.out.println("List Name: "+ listName);
+		String employeeName = request.getParameter("employeeName");
+		System.out.println("Employee Name: "+ employeeName);
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
 		String year = request.getParameter("year");

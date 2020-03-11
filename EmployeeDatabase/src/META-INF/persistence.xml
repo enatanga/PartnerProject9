@@ -8,8 +8,8 @@
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
-			<property name="javax.persistence.jdbc.url" value="mysql -h cis175.clspbtak0xvz.us-east-2.rds.amazonaws.com -P 3306 -u root -p"/>
-			<property name="javax.persistence.jdbc.password" value="omaromarj"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175java.c9eigdccqob0.us-east-2.rds.amazonaws.com/employeedata"/>
+			<property name="javax.persistence.jdbc.password" value="Slimboy7"/>
 		</properties>
 	</persistence-unit>
 </persistence>
